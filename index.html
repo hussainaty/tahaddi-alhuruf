@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121b26" />
+    <meta
+      name="description"
+      content="عرض تجريبي تفاعلي للعبة تحدي الحروف: لوحة 5×5، تحكم المدير، شاشة الجمهور، وجرس الفريقين."
+    />
+    <title>تحدي الحروف — العرض التجريبي</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23121b26%22/><path d=%22M17 16h30l12 16-12 16H17L5 32z%22 fill=%22%23f3b449%22/><text x=%2232%22 y=%2240%22 text-anchor=%22middle%22 font-size=%2226%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22%23121b26%22>ح</text></svg>" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-atmosphere" aria-hidden="true">
+      <div class="glimmer-field">
+        <span style="--x: 8%; --drift: 18px; --delay: -3s; --duration: 15s"></span>
+        <span style="--x: 16%; --drift: -14px; --delay: -8s; --duration: 18s"></span>
+        <span style="--x: 28%; --drift: 12px; --delay: -12s; --duration: 16s"></span>
+        <span style="--x: 39%; --drift: -20px; --delay: -5s; --duration: 19s"></span>
+        <span style="--x: 53%; --drift: 16px; --delay: -10s; --duration: 17s"></span>
+        <span style="--x: 67%; --drift: -12px; --delay: -1s; --duration: 14s"></span>
+        <span style="--x: 79%; --drift: 20px; --delay: -14s; --duration: 20s"></span>
+        <span style="--x: 91%; --drift: -16px; --delay: -7s; --duration: 16s"></span>
+      </div>
+    </div>
+    <a class="skip-link" href="#app-main">انتقل إلى المحتوى</a>
+
+    <header class="app-header">
+      <button class="brand" type="button" data-go="home" aria-label="العودة إلى البداية">
+        <span class="brand-mark" aria-hidden="true">ح</span>
+        <span>
+          <strong>تحدي الحروف</strong>
+          <small>نسخة العرض التجريبي</small>
+        </span>
+      </button>
+
+      <nav class="demo-nav" aria-label="شاشات العرض التجريبي">
+        <button type="button" data-go="home">البداية</button>
+        <button type="button" data-go="setup">الإعداد</button>
+        <button type="button" data-go="game">المدير</button>
+        <button type="button" data-go="audience">العرض</button>
+        <button type="button" data-go="winner">الفوز</button>
+        <button type="button" data-go="phone">الهاتف</button>
+      </nav>
+
+      <div class="session-chip" aria-label="رمز الجلسة">
+        <span>رمز الجلسة</span>
+        <strong id="header-session-code">٣٨٢١</strong>
+      </div>
+    </header>
+
+    <main id="app-main" tabindex="-1"></main>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+    <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title">
+      <form method="dialog">
+        <p class="eyebrow">تأكيد الإجراء</p>
+        <h2 id="confirm-title">هل تريد المتابعة؟</h2>
+        <p id="confirm-copy"></p>
+        <div class="dialog-actions">
+          <button class="button button-secondary" value="cancel">إلغاء</button>
+          <button class="button button-danger" id="confirm-action" value="confirm">تأكيد</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
