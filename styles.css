@@ -952,6 +952,20 @@ fieldset.field {
   width: calc(var(--hex-w) * 5 + var(--row-shift));
 }
 
+.hex-board::before,
+.hex-board::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  width: calc(var(--hex-w) * 5.5);
+  height: calc(var(--hex-h) * 0.25);
+  background: var(--team-two);
+  z-index: 0;
+}
+
+.hex-board::before { top: 0; }
+.hex-board::after { bottom: 0; }
+
 .hex-row {
   display: flex;
   height: calc(var(--hex-h) * 0.75 - 1px);
