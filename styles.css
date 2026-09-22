@@ -535,6 +535,10 @@ p {
   background: var(--ink-900);
 }
 
+.step-card-wide {
+  grid-column: 1 / -1;
+}
+
 .step-number {
   display: grid;
   width: 36px;
