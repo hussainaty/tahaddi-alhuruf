@@ -436,12 +436,7 @@ function renderArena(interactive = true, audience = false) {
     <section class="arena" aria-label="ساحة اللعب">
       <div class="stage-backdrop" aria-hidden="true"></div>
       <div class="board-stage">
-        <div class="goal-frame" aria-hidden="true">
-          <span class="goal-rail goal-rail-top"></span>
-          <span class="goal-rail goal-rail-bottom"></span>
-          <span class="goal-rail goal-rail-left"></span>
-          <span class="goal-rail goal-rail-right"></span>
-        </div>
+        <div class="goal-frame" aria-hidden="true"></div>
         ${renderBoard(interactive)}
       </div>
       ${audience ? `<p class="audience-caption">${state.selected !== null ? `السؤال الآن على حرف «${state.letters[state.selected]}»` : `الدور على ${escapeHtml(state.teams[state.currentTeam].name)}`}</p>` : ""}

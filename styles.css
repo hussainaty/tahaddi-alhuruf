@@ -892,11 +892,14 @@ fieldset.field {
   --hex-h: calc(var(--hex-w) * 1.1547);
   --row-shift: calc(var(--hex-w) * 0.5);
   --goal-rail: clamp(20px, 2.8vw, 40px);
+  --board-w: calc(var(--hex-w) * 5.5);
+  --board-h: calc(var(--hex-h) * 4 - 4px);
+  --frame-size: calc(max(var(--board-w), var(--board-h)) + var(--goal-rail) * 2);
   position: relative;
   z-index: 2;
   display: grid;
-  width: calc(var(--hex-w) * 5.5 + var(--goal-rail) * 2);
-  height: calc(var(--hex-h) * 4 - 4px + var(--goal-rail) * 2);
+  width: var(--frame-size);
+  height: var(--frame-size);
   place-items: center;
 }
 
@@ -904,46 +907,15 @@ fieldset.field {
   position: absolute;
   z-index: 0;
   inset: 0;
-  display: grid;
-  grid-template-columns: var(--goal-rail) 1fr var(--goal-rail);
-  grid-template-rows: var(--goal-rail) 1fr var(--goal-rail);
+  background: conic-gradient(
+    from 315deg at 50% 50%,
+    var(--team-two) 0deg 90deg,
+    var(--team-one) 90deg 180deg,
+    var(--team-two) 180deg 270deg,
+    var(--team-one) 270deg 360deg
+  );
   pointer-events: none;
 }
-
-.goal-rail {
-  display: block;
-  position: relative;
-  z-index: 1;
-}
-
-.goal-rail-top,
-.goal-rail-bottom {
-  background: var(--team-two);
-}
-
-.goal-rail-top { grid-area: 1 / 2 / 2 / 3; }
-.goal-rail-bottom { grid-area: 3 / 2 / 4 / 3; }
-
-.goal-rail-left,
-.goal-rail-right {
-  background: var(--team-one);
-}
-
-.goal-rail-left { grid-area: 1 / 1 / 4 / 2; }
-.goal-rail-right { grid-area: 1 / 3 / 4 / 4; }
-
-.goal-frame::before,
-.goal-frame::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  inset-block: var(--goal-rail);
-  width: var(--row-shift);
-  background: var(--team-one);
-}
-
-.goal-frame::before { inset-inline-start: var(--goal-rail); }
-.goal-frame::after { inset-inline-end: var(--goal-rail); }
 
 .hex-board {
   position: relative;
@@ -951,20 +923,6 @@ fieldset.field {
   direction: ltr;
   width: calc(var(--hex-w) * 5 + var(--row-shift));
 }
-
-.hex-board::before,
-.hex-board::after {
-  content: "";
-  position: absolute;
-  inset-inline-start: 0;
-  width: calc(var(--hex-w) * 5.5);
-  height: calc(var(--hex-h) * 0.25);
-  background: var(--team-two);
-  z-index: 0;
-}
-
-.hex-board::before { top: 0; }
-.hex-board::after { bottom: 0; }
 
 .hex-row {
   display: flex;
